@@ -1,0 +1,287 @@
+/* Layout toàn trang: giúp footer luôn ở cuối */
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1; /* chiếm phần còn lại của màn hình */
+}
+
+
+/* =========================
+   RESET & GLOBAL SETTINGS
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  background-color: #fafafa;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* =========================
+   HEADER STYLING
+========================= */
+header {
+  background-color: #1f1f1f; /* nền tối sang trọng */
+  color: #fff;
+  padding: 15px 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Container giới hạn độ rộng */
+header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo / Tên thương hiệu */
+header p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #c49b63; /* màu cà phê */
+}
+
+/* Menu */
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Hiệu ứng hover */
+header nav ul li a:hover {
+  color: #c49b63;
+}
+
+/* Hiệu ứng gạch chân mượt */
+header nav ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #c49b63;
+  transition: width 0.3s ease;
+}
+
+header nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+@media (max-width: 768px) {
+  header .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+    gap: 10px;
+  }
+
+  header nav ul li a {
+    display: block;
+    width: 100%;
+    padding: 8px 0;
+  }
+}
+
+/* =========================
+   FOOTER STYLING
+========================= */
+footer {
+  background-color: #1f1f1f; /* cùng màu với header */
+  color: #ddd;
+  text-align: center;
+  padding: 40px 20px;
+  border-top: 2px solid #c49b63; /* viền trên màu cà phê */
+}
+
+footer p:first-child {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #c49b63; /* chữ chính màu cà phê */
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+footer p:last-child {
+  font-size: 0.95rem;
+  color: #bbb;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Hiệu ứng nhẹ khi hover (nếu có liên kết trong footer sau này) */
+footer a {
+  color: #c49b63;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #fff;
+}
+
+/* Responsive — footer co gọn trên điện thoại */
+@media (max-width: 768px) {
+  footer {
+    padding: 30px 15px;
+  }
+
+  footer p:first-child {
+    font-size: 1.2rem;
+  }
+
+  footer p:last-child {
+    font-size: 0.9rem;
+  }
+}
+
+/* ========== RESET & FONT ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", Arial, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ========== KHỐI CHUNG ========== */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+/* ========== TRANG LIÊN HỆ ========== */
+.contact-info, .contact-form {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px 30px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+/* Khi hover nhẹ thì sáng hơn */
+.contact-info:hover, .contact-form:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* ========== CHIA BỐ CỤC 2 CỘT ========== */
+div > .contact-info, div > .contact-form {
+    display: inline-block;
+    vertical-align: top;
+    width: 48%;
+}
+
+.contact-info {
+    margin-right: 3%;
+}
+
+/* ========== NỘI DUNG TRONG INFO ========== */
+.contact-info strong {
+    color: #5a3d2b;
+}
+
+/* ========== FORM ========== */
+.contact-form h5 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #5a3d2b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contact-form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: 500;
+    color: #333;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    margin-bottom: 12px;
+    font-size: 15px;
+    transition: border 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #8b5e34;
+}
+
+/* ========== NÚT GỬI ========== */
+.contact-form input[type="submit"] {
+    background-color: #8b5e34;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.contact-form input[type="submit"]:hover {
+    background-color: #6a4528;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+    div > .contact-info, div > .contact-form {
+        width: 100%;
+        margin: 0 0 20px;
+        display: block;
+    }
+}
+
